@@ -1,0 +1,42 @@
+.sideNav {
+  height: 100%;
+  width: 240px;
+  position: fixed;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  padding-left: 20px;
+}
+
+.sideNav img {
+  height: 60px;
+  width: 60px;
+  border: 2px solid;
+  border-radius: 5px;
+}
+
+.sideNav h5 {
+  word-wrap: break-word;
+  color: rgba(232, 239, 245, 0.694);
+}
+
+.icon {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 20px;
+}
+
+.icon a {
+  text-decoration: none;
+  font-size: 17px;
+  color: rgba(232, 239, 245, 0.694);
+  display: block;
+  transition: 0.3s;
+}
+
+.color-fill {
+  fill: rgba(232, 239, 245, 0.694);
+  color: rgba(232, 239, 245, 0.694);
+  padding-right: 20px;
+}

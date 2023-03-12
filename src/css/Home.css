@@ -1,0 +1,46 @@
+.home {
+  position: fixed;
+  left: 260px;
+  color: rgba(232, 239, 245, 0.694);
+  padding-left: 20px;
+}
+
+.song-playlist {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  padding-bottom: 10px;
+}
+
+.song-playlist h4 {
+  margin: 0;
+  padding-right:40px;
+}
+
+.song-playlist button {
+  background-color: transparent;
+  color: rgba(232, 239, 245, 0.694);
+  border: none;
+  font-size: medium;
+  font-weight: bold;
+  padding-right: 10px;
+}
+
+.song-playlist button:hover {
+  color: blue;
+  background-color: rgba(232, 239, 245, 0.694);
+}
+.song-name {
+  display: flex;
+  flex-direction: row;
+}
+
+.like-icon {
+  /* padding-right: 150px; */
+  fill: rgba(232, 239, 245, 0.694);
+  color: rgba(232, 239, 245, 0.694);
+}
+
+.song-name h4 {
+  padding-left: 20px;
+}
