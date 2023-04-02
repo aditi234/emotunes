@@ -7,7 +7,8 @@ import SideNav from './SideNav';
 import './../css/Scan.css';
 
 function Scan() {
-    const [user, setUser] = useContext(UserContext);
+    const {userValue, songId} = useContext(UserContext);
+    const [user, setUser] = userValue;
 
     return !user ? (
         <div>

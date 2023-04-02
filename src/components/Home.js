@@ -1,14 +1,15 @@
 import { React, useContext, useEffect, useState } from "react";
 import { useLocation } from "react-router";
-import {BsSuitHeart, BsSuitHeartFill} from 'react-icons/bs';
+import {AiOutlineHeart } from 'react-icons/ai';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 
 import SideNav from './SideNav';
 import Error from "./Error";
 import SongBar from "./SongBar";
 
 import { UserContext } from "./UserContext";
-import thumbnail from './../assets/images/images.jfif';
+import thumbnail from './../assets/images/thumbnail.jpg';
 
 import './../css/Home.css';
 
@@ -38,33 +39,59 @@ function Home() {
         setSingleSong(song);
     }
     return !user ? (
-        <div>
+        <>
             <SideNav user={user}/>
             <Error />
-        </div>
+        </>
     ) : (
-        <div>
+        <>
             <SideNav user={user}/>
             <div className='home'>
-                <h1>Home</h1>
-                {
-                    songs.map((song, index) => {
-                        return(
-                            <div className="song-playlist">       
-                                <div className="song-name">
-                                    <button onClick={()=>selectSong(song.title)}>{index}</button>
-                                    <img src={thumbnail} alt="react logo" height="50px" width="50px"></img>
-                                    <h4>{song.title}</h4>
-                                </div>
-                                {/* <h4>Dreamland</h4> */}
-                                <BsSuitHeart className="like-icon" size={25}/>
-                            </div>
-                        )
-                    })
-                }
+                <h2>...</h2>
+                <div className="song-list">
+                    <div>
+                        <img src={thumbnail} alt="react logo" className="thumbnail1"></img>
+                    </div>
+                    <div>
+                        {
+                            songs.map((song, index) => {
+                                return(
+                                    <div className="song-playlist"> 
+                                        <button onClick={()=>selectSong(song.title)}>{index+1}</button>  
+                                        <AiOutlineHeart className="like-icon" size={25}/> 
+                                        <div className="song-info">
+                                            <h4>{song.title}</h4>
+                                            <h4 className="artist">Selena Gomez</h4>
+                                        </div>    
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
+                </div>
+                <div className="liked-song-heading">
+                    <h2>Liked Songs</h2>
+                    <Link to='/fav' className="liked-song-link">view more</Link>
+                </div>
+                <div className="liked-songs">
+                        {
+                            songs.map((song, index) => {
+                                return(
+                                    <div className="liked-song-playlist"> 
+                                        <img src={thumbnail} alt="react logo" className="thumbnail2"></img>
+                                        <div className="song-info">
+                                            <h4>{song.title}</h4>
+                                            <h4 className="artist">Selena Gomez</h4>
+                                        </div>   
+                                    </div>
+                                )
+                            })
+                        }
+                </div>
+                
             </div>
             <SongBar songName={singleSong}/>
-        </div>
+        </>
     );
 }
 

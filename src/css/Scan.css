@@ -1,6 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee&family=Nunito:wght@200&display=swap');
+
 .scan {
-    height: 100%;
-    position: fixed;
-    left: 260px;
-    color: rgba(232, 239, 245, 0.694);
+  position: fixed;
+  left: 170px;
+  right: 20px;
+  height: 80%;
+  color: rgb(88, 83, 83);
+  background-color: #eaebf1;
+  padding-left: 20px;
+  margin-top: 20px;
+  border-radius: 15px;
+  font-family: 'ABeeZee', sans-serif;
+  overflow-y: scroll;
   }

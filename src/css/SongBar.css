@@ -3,22 +3,21 @@
     bottom: 0;
     padding-left: 20px;
     padding-top: 20px;
+    margin: 20px 20px 15px 20px;
     height: 70px;
-    width: 100%;
-    background-color: rgb(37, 34, 34);
-    border-top: 1px solid rgb(68, 65, 65);
+    width: 96%;
+    background-color: #ebecf1;
     display: flex;
     flex-direction: row;
+    border-radius: 15px;
 }
 
 .like {
     padding-left: 20px;
-    fill: rgba(232, 239, 245, 0.694);
-    color: rgba(232, 239, 245, 0.694);
 }
 
 .song-title h4 {
-    color: rgba(232, 239, 245, 0.694);
+    color: black;
     margin: 0;
     padding-left: 20px;
 }

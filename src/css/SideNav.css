@@ -1,24 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee&display=swap');
+
 .sideNav {
   height: 100%;
-  width: 240px;
+  width: 150px;
   position: fixed;
-  background-color: black;
+  background-color: #dad9de;
   display: flex;
   flex-direction: column;
-  padding-top: 20px;
+  padding-top: 40px;
   padding-left: 20px;
+  font-family: 'ABeeZee', sans-serif;
 }
 
 .sideNav img {
   height: 60px;
   width: 60px;
-  border: 2px solid;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 .sideNav h5 {
   word-wrap: break-word;
-  color: rgba(232, 239, 245, 0.694);
+  color: rgb(88, 83, 83);
 }
 
 .icon {
@@ -30,13 +32,11 @@
 .icon a {
   text-decoration: none;
   font-size: 17px;
-  color: rgba(232, 239, 245, 0.694);
+  color: rgb(88, 83, 83);
   display: block;
   transition: 0.3s;
 }
 
 .color-fill {
-  fill: rgba(232, 239, 245, 0.694);
-  color: rgba(232, 239, 245, 0.694);
-  padding-right: 20px;
+  padding-right: 10px;
 }

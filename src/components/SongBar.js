@@ -4,7 +4,7 @@ import {VscDebugStart} from 'react-icons/vsc';
 import {IoPauseSharp} from 'react-icons/io5';
 import {MdSkipPrevious, MdSkipNext} from 'react-icons/md'
 
-import thumbnail from './../assets/images/images.jfif';
+import thumbnail from './../assets/images/thumbnail.jpg';
 import song from './../assets/audio/bookmark-in-a-book-140930.mp3';
 
 
@@ -29,7 +29,6 @@ export default function SongBar({songName}) {
                 }
                 <MdSkipNext className="like" size={25} /> */}
             </div>
-            
         </div>
     );
 }

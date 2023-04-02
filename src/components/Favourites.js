@@ -7,7 +7,8 @@ import SideNav from './SideNav';
 import './../css/Favourites.css';
 
 function Favourites() {
-    const [user, setUser] = useContext(UserContext);
+    const {userValue, songId} = useContext(UserContext);
+    const [user, setUser] = userValue;
 
     return !user ? (
         <div>
@@ -18,7 +19,7 @@ function Favourites() {
         <div>
             <SideNav user={user}/>
             <div className='favourites'>
-                <h1>Favourites</h1>
+                <h1>Liked Songs</h1>
             </div>
         </div>
     );
