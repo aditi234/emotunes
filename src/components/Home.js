@@ -6,7 +6,8 @@ import {Link} from 'react-router-dom';
 
 import SideNav from './SideNav';
 import Error from "./Error";
-import SongBar from "./SongBar";
+// import SongBar from "./SongBar";
+import AudioPlayer from "./SongBar/AudioPlayer";
 
 import { UserContext } from "./UserContext";
 import thumbnail from './../assets/images/thumbnail.jpg';
@@ -71,11 +72,11 @@ function Home() {
                 </div>
                 <div className="liked-song-heading">
                     <h2>Liked Songs</h2>
-                    <Link to='/fav' className="liked-song-link">view more</Link>
+                    <Link to='/fav' className="liked-song-link">view all</Link>
                 </div>
                 <div className="liked-songs">
                         {
-                            songs.map((song, index) => {
+                            songs.slice(0,5).map((song, index) => {
                                 return(
                                     <div className="liked-song-playlist"> 
                                         <img src={thumbnail} alt="react logo" className="thumbnail2"></img>
@@ -90,7 +91,7 @@ function Home() {
                 </div>
                 
             </div>
-            <SongBar songName={singleSong}/>
+            <AudioPlayer songName={singleSong}/>
         </>
     );
 }

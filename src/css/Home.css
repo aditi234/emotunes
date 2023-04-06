@@ -17,7 +17,6 @@
 .song-list {
   display: flex;
   flex-direction: row;
-  
 }
 
 .song-playlist {
@@ -68,7 +67,7 @@
 .liked-song-heading {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items:first baseline;
 }
 
 .liked-song-link {
@@ -81,6 +80,15 @@
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-around;
+}
+
+.liked-songs .song-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.liked-songs .artist {
+  padding-top: 10px;
 }
 
 .liked-songs h4 {
