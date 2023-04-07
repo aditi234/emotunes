@@ -4,30 +4,32 @@ import { FaHeart } from 'react-icons/fa';
 import { RiBodyScanFill } from 'react-icons/ri';
 import {Link} from 'react-router-dom';
 
+import logo from '../assets/images/logo.png';
+
 import './../css/SideNav.css';
 
-export default function SideNav(user) {
+export default function SideNav() {
     return(
         <div className='sideNav'>
-            <div>
-                <img src={user.user.picture}></img>
-                <h5 className='color-fill'>{user.user.name}</h5>
+            <div className='logo'>
+                <img src={logo} alt='logo' />
+                <h4>Emotunes</h4>
             </div>
             <div className='icon'>
                 <Link to='/home'>
-                    <ImHome size={20} className='color-fill'/>
+                    <ImHome size={25} className='color-fill'/>
                     Home
                 </Link>
             </div>
             <div className='icon'>
                 <Link to='/fav'>
-                    <FaHeart size={20} className='color-fill'/>
+                    <FaHeart size={25} className='color-fill'/>
                     Liked Songs
                 </Link>
             </div>
             <div className='icon'>
                 <Link to='/scan'>
-                    <RiBodyScanFill size={20} className='color-fill'/>
+                    <RiBodyScanFill size={25} className='color-fill'/>
                     Scan Emotion
                 </Link>
             </div>

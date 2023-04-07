@@ -6,8 +6,9 @@ import {Link} from 'react-router-dom';
 
 import SideNav from './SideNav';
 import Error from "./Error";
-// import SongBar from "./SongBar";
+import SearchBar from "./SearchBar";
 import AudioPlayer from "./SongBar/AudioPlayer";
+import UserProfile from "./UserProfile";
 
 import { UserContext } from "./UserContext";
 import thumbnail from './../assets/images/thumbnail.jpg';
@@ -15,7 +16,6 @@ import thumbnail from './../assets/images/thumbnail.jpg';
 import './../css/Home.css';
 
 function Home() {
-    // const [user, setUser] = useContext(UserContext);
     const {userValue, songId} = useContext(UserContext);
     const [user, setUser] = userValue;
     const [singleSong, setSingleSong] = songId;
@@ -46,8 +46,12 @@ function Home() {
         </>
     ) : (
         <>
-            <SideNav user={user}/>
+            <SideNav />
             <div className='home'>
+                <div className="header">
+                    <SearchBar />
+                    <UserProfile user={user}/>
+                </div>
                 <h2>...</h2>
                 <div className="song-list">
                     <div>
@@ -58,7 +62,6 @@ function Home() {
                             songs.map((song, index) => {
                                 return(
                                     <div className="song-playlist"> 
-                                        <button onClick={()=>selectSong(song.title)}>{index+1}</button>  
                                         <AiOutlineHeart className="like-icon" size={25}/> 
                                         <div className="song-info">
                                             <h4>{song.title}</h4>
