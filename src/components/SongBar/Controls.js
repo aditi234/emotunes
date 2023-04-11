@@ -34,9 +34,23 @@ export default function Controls({ audioRef, progressBarRef, duration, setTimePr
     playAnimationRef.current = requestAnimationFrame(repeat);
   }, [isPlaying, audioRef, repeat]);
 
+  const formatTime = (time) => {
+    if (time && !isNaN(time)) {
+      const minutes = Math.floor(time / 60);
+      const formatMinutes =
+        minutes < 10 ? `0${minutes}` : `${minutes}`;
+      const seconds = Math.floor(time % 60);
+      const formatSeconds =
+        seconds < 10 ? `0${seconds}` : `${seconds}`;
+      return `${formatMinutes}:${formatSeconds}`;
+    }
+    return '00:00';
+  };
+
   return (
     <>
         <div className='controls'>
+          <h5>{formatTime(audioRef.current.currentTime)}</h5>
           <button>
             <MdOutlineSkipPrevious size={30} className='color-fill'/>
           </button>
@@ -46,6 +60,7 @@ export default function Controls({ audioRef, progressBarRef, duration, setTimePr
           <button>
             <MdOutlineSkipNext size={30} className='color-fill'/>
           </button>
+          <h5>{formatTime(audioRef.current.duration)}</h5>
         </div>
     </>
   )

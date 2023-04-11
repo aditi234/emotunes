@@ -2,7 +2,6 @@
 
 .sideNav {
   height: 100%;
-  width: 280px;
   position: fixed;
   background-color: #dad9de;
   display: flex;
@@ -10,6 +9,18 @@
   padding-top: 40px;
   padding-left: 20px;
   font-family: 'ABeeZee', sans-serif;
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 40px;
+}
+
+.logo h4 {
+  color:rgb(88, 83, 83);
+  font-family: 'ABeeZee', sans-serif;
+  padding-left: 10px;
 }
 
 .sideNav img {
@@ -31,12 +42,12 @@
 
 .icon a {
   text-decoration: none;
-  font-size: 17px;
+  font-size: 19px;
   color: rgb(88, 83, 83);
-  display: block;
   transition: 0.3s;
 }
 
 .color-fill {
   padding-right: 10px;
+  color: rgb(88, 83, 83);
 }

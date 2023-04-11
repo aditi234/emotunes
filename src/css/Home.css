@@ -2,7 +2,7 @@
 
 .home {
   position: fixed;
-  left: 170px;
+  left: 230px;
   right: 20px;
   height: 80%;
   color: rgb(88, 83, 83);
@@ -12,6 +12,12 @@
   border-radius: 15px;
   font-family: 'ABeeZee', sans-serif;
   overflow-y: scroll;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .song-list {
@@ -27,9 +33,15 @@
   align-items: center;
 }
 
+.song-playlist .song-info {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
 .song-playlist h4 {
-  margin: 0;
   text-align: left;
+  padding-left: 10px;
 }
 
 .song-playlist button {
@@ -54,8 +66,7 @@
 }
 
 .like-icon {
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 25px;
 }
 
 .artist {
@@ -68,6 +79,7 @@
   display: flex;
   flex-direction: row;
   align-items:first baseline;
+  
 }
 
 .liked-song-link {
@@ -85,6 +97,8 @@
 .liked-songs .song-info {
   display: flex;
   flex-direction: column;
+  padding-top: 10px;
+  padding-bottom: 20px;
 }
 
 .liked-songs .artist {
@@ -94,6 +108,7 @@
 .liked-songs h4 {
   text-align: center;
   width: 200px;
+  padding-left: 0px;
 }
 
 .liked-song-playlist {
