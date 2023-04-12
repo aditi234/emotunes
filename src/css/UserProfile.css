@@ -6,6 +6,12 @@
     align-items: center;
 }
 
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .user-profile img {
     width: 40px;
     height: 40px;

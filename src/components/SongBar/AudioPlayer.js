@@ -7,7 +7,7 @@ import Volume from './Volume';
 
 import '../../css/SongBar.css';
 
-export default function AudioPlayer() {
+export default function AudioPlayer({song}) {
   const audioRef = useRef();
   const progressBarRef = useRef();
 

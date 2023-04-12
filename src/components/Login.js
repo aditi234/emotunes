@@ -22,7 +22,7 @@ export default function Login() {
             name: userObj.name,
             userId: userObj.sub
     })
-    .then(res => console.log(res));
+    // .then(res => console.log(res));
     if(userObj) navigate('/home', {state: {user: userObj}});
   }
   useEffect(() => {

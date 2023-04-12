@@ -2,7 +2,7 @@
 
 .scan {
   position: fixed;
-  left: 230px;
+  left: 250px;
   right: 20px;
   height: 80%;
   color: rgb(88, 83, 83);
@@ -13,3 +13,9 @@
   font-family: 'ABeeZee', sans-serif;
   overflow-y: scroll;
   }
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

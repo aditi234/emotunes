@@ -3,6 +3,7 @@ import { React, useContext } from "react";
 import { UserContext } from "./UserContext";
 import Error from "./Error";
 import SideNav from './SideNav';
+import UserProfile from "./UserProfile";
 
 import './../css/Scan.css';
 
@@ -19,7 +20,10 @@ function Scan() {
         <div>
             <SideNav user={user}/>
             <div className='scan'>
-                <h1>Scan</h1>
+                <div className='header'>
+                    <h2>Scan</h2>
+                    <UserProfile user={user} />
+                </div>
             </div>
         </div>
     );

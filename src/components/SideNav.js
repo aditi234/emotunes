@@ -3,6 +3,7 @@ import {ImHome} from 'react-icons/im';
 import { FaHeart } from 'react-icons/fa';
 import { RiBodyScanFill } from 'react-icons/ri';
 import {Link} from 'react-router-dom';
+import {MdEmojiEmotions} from 'react-icons/md';
 
 import logo from '../assets/images/logo.png';
 
@@ -31,6 +32,12 @@ export default function SideNav() {
                 <Link to='/scan'>
                     <RiBodyScanFill size={25} className='color-fill'/>
                     Scan Emotion
+                </Link>
+            </div>
+            <div className='icon'>
+                <Link to='/sentimental'>
+                    <MdEmojiEmotions size={25} className='color-fill'/>
+                    Sentimental Song
                 </Link>
             </div>
         </div>

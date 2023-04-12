@@ -21,16 +21,19 @@ function Home() {
     const [singleSong, setSingleSong] = songId;
     const [songs, setSongs] = useState([]);
     useEffect(()=> {
-        fetch('/v1/songs/all?user_id='+user.sub, {
-            method: "get",
+        axios.get('/v1/songs/all/', {
+            params: {
+                user_id: user.sub,
+                offset: 0
+            }
         })
-        .then(res =>res.json())
-        .then(result => {
-            if(result.error){
-                alert(result.error);
+        // .then(res=>res.json())
+        .then(res => {
+            if(res.error){
+                alert(res.error);
             } else {
-                // console.log(result);
-                setSongs(result)
+                console.log(res.data);
+                setSongs(res.data)
             }
         })
 
@@ -61,13 +64,17 @@ function Home() {
                         {
                             songs.map((song, index) => {
                                 return(
-                                    <div className="song-playlist"> 
-                                        <AiOutlineHeart className="like-icon" size={25}/> 
-                                        <div className="song-info">
-                                            <h4>{song.title}</h4>
-                                            <h4 className="artist">Selena Gomez</h4>
-                                        </div>    
-                                    </div>
+                                    <div className="song-playlist">
+                                        <button>
+                                            <AiOutlineHeart className="like-icon" size={25}/> 
+                                        </button>
+                                        <button className="song-name" onClick={() => selectSong(song)}>
+                                            <div className="song-info">
+                                                <h4>{song.title}</h4>
+                                                <h4 className="artist">Selena Gomez</h4>
+                                            </div> 
+                                        </button> 
+                                    </div>   
                                 )
                             })
                         }
@@ -94,7 +101,7 @@ function Home() {
                 </div>
                 
             </div>
-            <AudioPlayer songName={singleSong}/>
+            {/* <AudioPlayer songName={singleSong}/> */}
         </>
     );
 }
