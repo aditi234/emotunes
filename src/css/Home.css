@@ -23,6 +23,10 @@
 .song-list {
   display: flex;
   flex-direction: row;
+}
+
+.all-songs {
+  height: 280px;
   overflow-y: scroll;
 }
 
@@ -36,10 +40,7 @@
 .song-playlist .song-name :hover {
   background: rgb(164, 162, 166);
   cursor: pointer;
-  width: 700px;
-  height: 40px;
 }
-
 
 .song-playlist .song-info {
   display: flex;
