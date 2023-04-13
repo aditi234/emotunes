@@ -20,28 +20,49 @@ function Home() {
     const [user, setUser] = userValue;
     const [singleSong, setSingleSong] = songId;
     const [songs, setSongs] = useState([]);
-    useEffect(()=> {
-        axios.get('/v1/songs/all/', {
+    const [numberOfSongs, setNumberOfSongs] = useState(0);
+
+    const getSongs = async() => {
+        await axios.get('/v1/songs/all/', {
             params: {
                 user_id: user.sub,
-                offset: 0
+                offset: numberOfSongs
             }
         })
-        // .then(res=>res.json())
         .then(res => {
             if(res.error){
                 alert(res.error);
-            } else {
-                console.log(res.data);
-                setSongs(res.data)
+            } else {      
+                setSongs((prev) => [...prev, ...res.data]);
             }
         })
+    }
 
-    }, [])
+    useEffect(() => {
+        getSongs();
+    }, [numberOfSongs]);
+
     const selectSong = (song) => {
         console.log(song)
         setSingleSong(song);
     }
+
+    const handleInfiniteScroll =() => {
+        let control = document.querySelector(".all-songs");
+        try {
+            if(control.scrollTop + control.clientHeight +1 > control.scrollHeight) {
+                setNumberOfSongs((prev)=> prev+10);
+            }
+        } catch(err) {
+            console.log(err);
+        }
+    }
+
+    useEffect(()=> {
+        let control = document.querySelector(".all-songs");
+        control.addEventListener("scroll", handleInfiniteScroll)
+    }, [])
+
     return !user ? (
         <>
             <SideNav user={user}/>
@@ -60,7 +81,7 @@ function Home() {
                     <div>
                         <img src={thumbnail} alt="react logo" className="thumbnail1"></img>
                     </div>
-                    <div>
+                    <div className="all-songs">
                         {
                             songs.map((song, index) => {
                                 return(
