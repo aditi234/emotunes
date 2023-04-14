@@ -16,19 +16,19 @@
     padding-left: 20px;
     padding-right: 10px;
     margin-top: 10px;
-    justify-content: space-between;
+    /* justify-content: space-between; */
 }
 
 .display {
     padding-top: 10px; 
 }
 
-.song-info {
+.display .song-info {
     display: flex;
     flex-direction: row;
 }
 
-.song-info h4 {
+.song-info h5 {
     margin: 0;
     padding-left: 20px;
     color: rgb(88, 83, 83);
@@ -44,9 +44,15 @@
     border-radius: 7px;
 }
 
+.songName {
+    width: 400px;
+    flex-wrap: wrap-reverse;
+}
+
 .controls {
     display: flex; 
-    flex-direction: row;    
+    flex-direction: row;   
+    margin-left: 200px; 
 }
 
 .controls h5 {
@@ -73,6 +79,7 @@
 .volume {
     display: flex;
     align-items: center;
+    margin-left: 340px;
 }
 
 .volume-bar {

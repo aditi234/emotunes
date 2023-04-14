@@ -4,6 +4,8 @@ import { MdOutlineSkipPrevious, MdOutlineSkipNext } from 'react-icons/md';
 
 export default function Controls({ audioRef, progressBarRef, duration, setTimeProgress }) {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [currentTime, setCurrentTime] =useState(0);
+  const [totalTime, setTotalTime] = useState(0);
   const playAnimationRef = useRef();
 
   const togglePlayPause = () => {
@@ -50,7 +52,7 @@ export default function Controls({ audioRef, progressBarRef, duration, setTimePr
   return (
     <>
         <div className='controls'>
-          <h5>{formatTime(audioRef.current.currentTime)}</h5>
+          <h5>{audioRef && audioRef.current ? formatTime(audioRef.current.currentTime) : "0:00"}</h5>
           <button>
             <MdOutlineSkipPrevious size={30} className='color-fill'/>
           </button>
@@ -60,7 +62,7 @@ export default function Controls({ audioRef, progressBarRef, duration, setTimePr
           <button>
             <MdOutlineSkipNext size={30} className='color-fill'/>
           </button>
-          <h5>{formatTime(audioRef.current.duration)}</h5>
+          <h5>{audioRef && audioRef.current ? formatTime(audioRef.current.duration) : ""}</h5>
         </div>
     </>
   )
