@@ -44,7 +44,7 @@ function Home() {
 
     const selectSong = (song) => {
         console.log(song)
-        setSingleSong(song);
+        setSingleSong(() => song);
     }
 
     const handleInfiniteScroll =() => {
@@ -92,7 +92,7 @@ function Home() {
                                         <button className="song-name" onClick={() => selectSong(song)}>
                                             <div className="song-info">
                                                 <h4>{song.title}</h4>
-                                                <h4 className="artist">Selena Gomez</h4>
+                                                <h4 className="artist">{song.artist}</h4>
                                             </div> 
                                         </button> 
                                     </div>   
@@ -113,7 +113,7 @@ function Home() {
                                         <img src={thumbnail} alt="react logo" className="thumbnail2"></img>
                                         <div className="song-info">
                                             <h4>{song.title}</h4>
-                                            <h4 className="artist">Selena Gomez</h4>
+                                            <h4 className="artist">{song.artist}</h4>
                                         </div>   
                                     </div>
                                 )
@@ -122,7 +122,7 @@ function Home() {
                 </div>
                 
             </div>
-            {/* <AudioPlayer songName={singleSong}/> */}
+           <AudioPlayer /> 
         </>
     );
 }
