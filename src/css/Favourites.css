@@ -7,9 +7,53 @@
   height: 80%;
   color: rgb(88, 83, 83);
   background-color: #eaebf1;
-  padding-left: 20px;
   margin-top: 20px;
   border-radius: 15px;
   font-family: 'ABeeZee', sans-serif;
   overflow-y: scroll;
-  }
+}
+
+.upper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: rgb(167, 159, 186);
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.user-profile {
+  position: fixed;
+  top: 20px;
+  right: 40px;
+}
+
+.upper h1 {
+  color: black;
+  font-size: 80px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.like-page {
+  width: 250px;
+  height: 250px;
+  border: 1px solid;
+}
+
+.text-portion {
+  padding-left: 20px;
+}
+
+.text-portion .text-first {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-top: 20px;
+  color: black;
+}
+
+.all-liked-songs {
+  margin-top: 20px;
+}
