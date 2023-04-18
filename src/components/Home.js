@@ -1,6 +1,5 @@
-import { React, useContext, useEffect, useState } from "react";
-import { useLocation } from "react-router";
-import {AiOutlineHeart } from 'react-icons/ai';
+import React, {useContext, useEffect, useState } from "react";
+import {AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 
@@ -21,6 +20,7 @@ function Home() {
     const [singleSong, setSingleSong] = songId;
     const [songs, setSongs] = useState([]);
     const [numberOfSongs, setNumberOfSongs] = useState(0);
+    const [likedSongs, setLikedSongs] = useState([]);
 
     const getSongs = async() => {
         await axios.get('/v1/songs/all/', {
@@ -43,7 +43,6 @@ function Home() {
     }, [numberOfSongs]);
 
     const selectSong = (song) => {
-        console.log(song)
         setSingleSong(() => song);
     }
 
@@ -63,6 +62,54 @@ function Home() {
         control.addEventListener("scroll", handleInfiniteScroll)
     }, [])
 
+    const toggleLike = async (song_Id) => {
+        await axios.post('/v1/song_player/toggle_like/', null ,{
+            params: {
+                user_id: user.sub,
+                song_id: song_Id
+            }
+        })
+        .then((res)=> {
+            if(res.error) {
+                alert(res.error)
+            } else {
+                const newData = songs.map(song => {
+                    if(song.songId === song_Id) {
+                        song.liked = !song.liked
+                    }
+                    return song;
+                });
+                setSongs(newData);
+                const song = songs.map(item => {
+                    if(item.songId === song_Id) {
+                        return item;
+                    }
+                })
+                setLikedSongs((prev) => [...prev, ...song]);
+                getAllLikedSongs();
+            }
+        })
+    }
+
+    const getAllLikedSongs = async() => {
+        axios.get('/v1/songs/liked/', {
+            params: {
+                user_id: user.sub,
+                offset: 0,
+            }
+        })
+        .then((res) => {
+            if(res.error) {
+                alert(res.error);
+            } else {
+                setLikedSongs(res.data);
+            }
+        });
+    }
+
+    useEffect(() => {
+        getAllLikedSongs();
+    }, [])
     return !user ? (
         <>
             <SideNav user={user}/>
@@ -86,8 +133,11 @@ function Home() {
                             songs.map((song, index) => {
                                 return(
                                     <div className="song-playlist">
-                                        <button>
-                                            <AiOutlineHeart className="like-icon" size={25}/> 
+                                        <button onClick={()=> toggleLike(song.songId)}>
+                                            {
+                                                song.liked ? <AiFillHeart className="like-icon" size={25}/> :
+                                                <AiOutlineHeart className="like-icon" size={25}/> 
+                                            }
                                         </button>
                                         <button className="song-name" onClick={() => selectSong(song)}>
                                             <div className="song-info">
@@ -107,7 +157,7 @@ function Home() {
                 </div>
                 <div className="liked-songs">
                         {
-                            songs.slice(0,5).map((song, index) => {
+                            likedSongs.slice(0,5).map((song, index) => {
                                 return(
                                     <div className="liked-song-playlist"> 
                                         <img src={thumbnail} alt="react logo" className="thumbnail2"></img>

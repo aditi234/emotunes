@@ -8,7 +8,6 @@ import { UserContext } from "./../UserContext"
 export default function DisplayTrack({audioRef, setDuration, progressBarRef}) {
   const {userValue, songId} = useContext(UserContext);
   const [singleSong, setSingleSong] = songId;
-  console.log('diplay', singleSong);
 
   const onLoadedMetadata = () => {
     const seconds = audioRef.current.duration;

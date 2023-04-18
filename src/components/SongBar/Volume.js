@@ -1,9 +1,14 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useContext} from 'react'
 import { HiVolumeUp } from 'react-icons/hi'; 
-import {AiOutlineHeart } from 'react-icons/ai';
+import {AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
+import { UserContext } from "./../UserContext"
+
 
 export default function Volume({ audioRef}) {
   const [volume, setVolume] = useState(60);
+  const {userValue, songId} = useContext(UserContext);
+  const [singleSong, setSingleSong] = songId;
+
   useEffect(() => {
     if (audioRef) {
       audioRef.current.volume = volume / 100;
@@ -20,7 +25,9 @@ export default function Volume({ audioRef}) {
             onChange={(e) => setVolume(e.target.value)}
             className='volume-bar'
         />
-        <AiOutlineHeart className="color-fill" size={25}/> 
+        {
+          singleSong.liked ? <AiFillHeart className="color-fill" size={25}/> : <AiOutlineHeart className="color-fill" size={25}/> 
+        }
     </div>
   )
 }

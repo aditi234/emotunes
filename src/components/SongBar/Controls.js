@@ -4,8 +4,6 @@ import { MdOutlineSkipPrevious, MdOutlineSkipNext } from 'react-icons/md';
 
 export default function Controls({ audioRef, progressBarRef, duration, setTimeProgress }) {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [currentTime, setCurrentTime] =useState(0);
-  const [totalTime, setTotalTime] = useState(0);
   const playAnimationRef = useRef();
 
   const togglePlayPause = () => {
