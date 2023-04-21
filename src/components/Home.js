@@ -120,7 +120,7 @@ function Home() {
             <SideNav />
             <div className='home'>
                 <div className="header">
-                    <SearchBar />
+                    <SearchBar songs={songs} setSongs={setSongs}/>
                     <UserProfile user={user}/>
                 </div>
                 <h2>...</h2>
