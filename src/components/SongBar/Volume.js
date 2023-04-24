@@ -9,7 +9,6 @@ export default function Volume({ audioRef}) {
   const [volume, setVolume] = useState(60);
   const {userValue, songId} = useContext(UserContext);
   const [singleSong, setSingleSong] = songId;
-  console.log('valume', singleSong);
 
   useEffect(() => {
     if (audioRef) {

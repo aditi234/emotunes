@@ -1,0 +1,23 @@
+.outer-box {
+    display: flex;
+    flex-direction: row;
+    width: 180px;
+    background-color: rgb(161, 158, 173);
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px rgb(95, 96, 105);
+    align-items: center;
+    cursor: pointer;
+}
+
+.outer-box:hover {
+    background-color: rgb(117, 115, 124);
+}
+
+.emoji {
+    padding: 5px 4px 3px 4px;
+    background-color: rgb(161, 158, 173);
+    border: 0.5px solid rgb(97, 93, 93);
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-right: 15px;
+}

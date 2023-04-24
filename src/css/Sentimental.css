@@ -19,3 +19,15 @@
   flex-direction: row;
   justify-content: space-between;
 }
+
+.select-emotion {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-right: 20%;
+  margin-top: 40px;
+}
+
+.songs-by-emotion {
+  margin-top: 40px;
+}
