@@ -7,15 +7,21 @@ import Error from "./Error";
 import SideNav from './SideNav';
 import UserProfile from './UserProfile';
 import EmotionTiles from './EmotionTiles';
+import AudioPlayer from "./SongBar/AudioPlayer";
 
 import './../css/Sentimental.css';
 
 export default function Sentimental() {
     const {userValue, songId} = useContext(UserContext);
     const [user, setUser] = userValue;
+    const [singleSong, setSingleSong] = songId;
     const [songs, setSongs] = useState([]);
     const [numberOfSongs, setNumberOfSongs] = useState(0);
     const [emotion, setEmotion] = useState('HAPPY');
+
+    const selectSong = (song) => {
+        setSingleSong(() => song);
+    }
 
     const getSongsByEmotion = () =>{
         axios.get('/v1/songs/emotion', {
@@ -78,6 +84,8 @@ export default function Sentimental() {
 
     const getSongs = (emotion) => {
         setEmotion(() => emotion);
+        setNumberOfSongs(0);
+        setSongs([]);
     }
 
     return !user ? (
@@ -109,7 +117,7 @@ export default function Sentimental() {
                                             <AiOutlineHeart className="like-icon" size={25}/> 
                                         }
                                     </button>
-                                    <button className="song-name">
+                                    <button className="song-name" onClick={() => selectSong(song)}>
                                         <div className="song-info">
                                             <h4>{song.title}</h4>
                                             <h4 className="artist">{song.artist}</h4>
@@ -121,8 +129,8 @@ export default function Sentimental() {
                     }
 
                 </div>
-                
             </div>
+            <AudioPlayer />
         </div>
     );
 }
