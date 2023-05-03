@@ -70,7 +70,7 @@ export default function Sentimental() {
         let control = document.querySelector(".sentimental");
         try {
             if(control.scrollTop + control.clientHeight +1 > control.scrollHeight) {
-                setNumberOfSongs((prev)=> prev+10);
+                setNumberOfSongs((prev)=> prev+50);
             }
         } catch(err) {
             console.log(err);
@@ -127,7 +127,6 @@ export default function Sentimental() {
                             )
                         })
                     }
-
                 </div>
             </div>
             <AudioPlayer />

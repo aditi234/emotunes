@@ -50,7 +50,7 @@ function Home() {
         let control = document.querySelector(".all-songs");
         try {
             if(control.scrollTop + control.clientHeight +1 > control.scrollHeight) {
-                setNumberOfSongs((prev)=> prev+10);
+                setNumberOfSongs((prev)=> prev+50);
             }
         } catch(err) {
             console.log(err);
@@ -120,7 +120,7 @@ function Home() {
             <SideNav />
             <div className='home'>
                 <div className="header">
-                    <SearchBar />
+                    <SearchBar numberOfSongs={numberOfSongs} setNumberOfSongs={setNumberOfSongs} songs={songs} setSongs={setSongs}/>
                     <UserProfile user={user}/>
                 </div>
                 <h2>...</h2>
