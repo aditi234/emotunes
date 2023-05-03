@@ -1,51 +1,36 @@
 import React, { useState, useContext } from 'react'
 import {BiSearch} from 'react-icons/bi'
+import '../css/SearchBar.css'
 import axios from 'axios';
 
-import { UserContext } from './UserContext';
+import { UserContext } from "./UserContext";
 
-import '../css/SearchBar.css'
 
-export default function SearchBar({songs, setSongs}) {
+export default function SearchBar({numberOfSongs, setNumberOfSongs, songs, setSongs}) {
   const [searchInput, setSearchInput] = useState('');
   const {userValue, songId} = useContext(UserContext);
   const [user, setUser] = userValue;
-
-  const getSongs = async() => {
-      await axios.get('/v1/songs/all/', {
+  const search = async() => {
+      await axios.get('/v1/songs/search', {
           params: {
-              user_id: user.sub,
-              offset: 0
+             user_id: user.sub,
+             prefix: searchInput,
+             offset: numberOfSongs
           }
       })
       .then(res => {
-          if(res.error){
-              alert(res.error);
-          } else {      
-              setSongs((prev) => [...prev, ...res.data]);
-          }
-      })
+        if(res.error){
+            alert(res.error);
+        } else {      
+            setSongs(res.data);
+        }
+    })
   }
-
-  const handleChange = (value) => {
-    setSearchInput(value);
-    if(value.length>=3) {
-      axios.get('/v1/songs/search', {
-        params: {
-          user_id: user.sub,
-          prefix: value
-        }
-      })
-      .then(res => {
-        if(res.error) {
-          alert(res.error);
-        } else {
-          setSongs(()=>[...res.data]);
-        }
-      })
-    } else if(value.length===0) {
-        getSongs();
-    }
+  const handleChange = (e) => {
+    e.preventDefault();
+    setSearchInput(e.target.value);
+    setNumberOfSongs(0);
+    search()
   };
   
   return (
@@ -54,7 +39,7 @@ export default function SearchBar({songs, setSongs}) {
         <input
             type="text"
             placeholder="Search here"
-            onChange={(e)=>handleChange(e.target.value)}
+            onChange={handleChange}
             value={searchInput} 
         />
     </div>

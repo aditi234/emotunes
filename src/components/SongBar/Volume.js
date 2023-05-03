@@ -18,7 +18,6 @@ export default function Volume({ audioRef}) {
   return (
     <div className="volume">
         {singleSong ? <SuggestEmotion /> : null }
-        <HiVolumeUp size={25} className='color-fill'/>
         <input
             type="range"
             min={0}
@@ -27,9 +26,7 @@ export default function Volume({ audioRef}) {
             onChange={(e) => setVolume(e.target.value)}
             className='volume-bar'
         />
-        {
-          singleSong.liked ? <AiFillHeart className="color-fill" size={25}/> : <AiOutlineHeart className="color-fill" size={25}/> 
-        }
+        <HiVolumeUp size={25} className='color-fill'/>
     </div>
   )
 }
