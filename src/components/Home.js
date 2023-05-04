@@ -126,7 +126,7 @@ function Home() {
                 <h2>...</h2>
                 <div className="song-list">
                     <div>
-                        <img src={thumbnail} alt="react logo" className="thumbnail1"></img>
+                        <img src="https://emotunes.blob.core.windows.net/thumbnails/default-thumbnail.jpg" alt="song-thumbnail" className="thumbnail1"></img>
                     </div>
                     <div className="all-songs">
                         {
@@ -160,7 +160,7 @@ function Home() {
                             likedSongs.slice(0,5).map((song, index) => {
                                 return(
                                     <div className="liked-song-playlist"> 
-                                        <img src={thumbnail} alt="react logo" className="thumbnail2"></img>
+                                        <img src={song.thumbnailUrl} alt="react logo" className="thumbnail2"></img>
                                         <div className="song-info">
                                             <h4>{song.title}</h4>
                                             <h4 className="artist">{song.artist}</h4>

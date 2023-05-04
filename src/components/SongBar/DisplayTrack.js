@@ -1,6 +1,5 @@
 import React, {useContext} from 'react'
 
-import song from '../../assets/audio/bookmark-in-a-book-140930.mp3';
 import thumbnail from '../../assets/images/thumbnail.jpg';
 import { UserContext } from "./../UserContext"
 
@@ -8,7 +7,6 @@ import { UserContext } from "./../UserContext"
 export default function DisplayTrack({audioRef, setDuration, progressBarRef}) {
   const {userValue, songId} = useContext(UserContext);
   const [singleSong, setSingleSong] = songId;
-
   const onLoadedMetadata = () => {
     const seconds = audioRef.current.duration;
     setDuration(seconds);
@@ -24,7 +22,7 @@ export default function DisplayTrack({audioRef, setDuration, progressBarRef}) {
           </div>
         </div>
         <audio 
-          src={song} 
+          src={singleSong.songUrl} 
           ref={audioRef}
           onLoadedMetadata={onLoadedMetadata} />
     </div>
