@@ -60,7 +60,7 @@ function Favourites() {
     }
     
     const toggleLike = async (song_Id) => {
-        await axios.post('/v1/song_player/toggle_like/', null ,{
+        await axios.post('/v1/song_player/toggle_like', null ,{
             params: {
                 user_id: user.sub,
                 song_id: song_Id
