@@ -105,6 +105,9 @@ export default function Sentimental() {
                     <button onClick={() => getSongs("HAPPY")}><EmotionTiles emotion={'Happy'}/></button>
                     <button onClick={() => getSongs("NEUTRAL")}><EmotionTiles emotion={'Neutral'}/></button>
                     <button onClick={() => getSongs("SAD")}><EmotionTiles emotion={'Sad'}/></button>
+                    <button onClick={() => getSongs("ANGRY")}><EmotionTiles emotion={'Angry'}/></button>
+                    <button onClick={() => getSongs("FEAR")}><EmotionTiles emotion={'Fear'}/></button>
+                    <button onClick={() => getSongs("SURPRISE")}><EmotionTiles emotion={'Surprise'}/></button>
                 </div>
                 <div className='songs-by-emotion'>
                     {

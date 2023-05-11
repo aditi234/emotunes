@@ -80,12 +80,12 @@ function Home() {
                     return song;
                 });
                 setSongs(newData);
-                const song = songs.map(item => {
-                    if(item.songId === song_Id) {
-                        return item;
-                    }
-                })
-                setLikedSongs((prev) => [...prev, ...song]);
+                // const song = songs.map(item => {
+                //     if(item.songId === song_Id) {
+                //         return item;
+                //     }
+                // })
+                // setLikedSongs((prev) => [...prev, ...song]);
                 getAllLikedSongs();
             }
         })
@@ -126,7 +126,7 @@ function Home() {
                 <h2>...</h2>
                 <div className="song-list">
                     <div>
-                        <img src="https://emotunes.blob.core.windows.net/thumbnails/default-thumbnail.jpg" alt="song-thumbnail" className="thumbnail1"></img>
+                        <img src="https://emotunesstorage.blob.core.windows.net/thumbnails/default-thumbnail.jpg" alt="song-thumbnail" className="thumbnail1"></img>
                     </div>
                     <div className="all-songs">
                         {
