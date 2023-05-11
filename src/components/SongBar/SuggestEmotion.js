@@ -7,7 +7,7 @@ import { UserContext } from '../UserContext';
 export default function SuggestEmotion() {
     const [menuState, setMenuState] = useState('true');
     const [ emotions, setEmotions] = useState([
-        {value: "HAPPY"}, {value: "SAD"}, {value: "NEUTRAL"}
+        {value: "HAPPY"}, {value: "SAD"}, {value: "NEUTRAL"}, {value: "ANGRY"}, {value: "FEAR"}, {value: "SURPRISE"}
     ]);
     const {userValue, songId} = useContext(UserContext);
     const [user, setUser] = userValue;
