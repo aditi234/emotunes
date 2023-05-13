@@ -13,10 +13,12 @@ export default function Login() {
   // const [user, setUser] = useContext(UserContext);
   const {userValue, songId} = useContext(UserContext);
   const [user, setUser] = userValue;
+  axios.defaults.baseURL = 'https://emotunes-backend.azurewebsites.net';
 
   const handleCallbackResponse = (response) => {
     const userObj=jwt_decode(response.credential);
     setUser(userObj);
+
     axios.post('/v1/admin/user/register/', {
             emailId: userObj.email,
             name: userObj.name,
