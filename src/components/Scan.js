@@ -26,6 +26,12 @@ function Scan() {
     const videoWidth = 640;
     const canvasRef = useRef();
     const emotion = useRef();
+    const map_emotion = (emotion) => {
+      if(emotion === "HAPPY" || emotion === "SAD" || emotion === "ANGRY") return emotion;
+      else if(emotion === "SURPRISED") return "SURPRISE";
+      else if(emotion === "FEARFUL") return "FEAR";
+      else return "NEUTRAL";
+    }
 
     const selectSong = (song) => {
       setSingleSong(() => song);
@@ -113,7 +119,6 @@ function Scan() {
     
       const closeWebcam = () => {
         getSongsByEmotion();
-        console.log(emotion.value.toUpperCase());
         videoRef.current.pause();
         videoRef.current.srcObject.getTracks()[0].stop();
         setCaptureVideo(false);
@@ -123,7 +128,7 @@ function Scan() {
       axios.get('/v1/songs/emotion', {
           params: {
               user_id: user.sub,
-              emotion: emotion.value.toUpperCase(),
+              emotion: map_emotion(emotion.value.toUpperCase()),
               offset: 0
           }
       })

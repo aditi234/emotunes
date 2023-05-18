@@ -1,5 +1,6 @@
 import React from 'react';
-import {ImNeutral2, ImSad2, ImHappy2} from 'react-icons/im';
+import {ImNeutral2, ImSad2, ImHappy2, ImAngry2} from 'react-icons/im';
+import { FaSurprise } from "react-icons/fa";
 
 import '../css/EmotionTiles.css';
 
@@ -9,7 +10,11 @@ export default function EmotionTiles({emotion}) {
         return (<ImHappy2 size={30} />)
     } else if (emotion === 'Neutral') {
         return (<ImNeutral2 size={30} />)
-    } else {
+    } else if (emotion === 'Surprise') {
+        return (<FaSurprise size={30}/>)
+    } else if (emotion === 'Angry') {
+      return (<ImAngry2 size={30}/>)
+  } else {
         return (<ImSad2 size={30}/>)
     }
   }

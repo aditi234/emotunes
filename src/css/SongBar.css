@@ -79,6 +79,7 @@
     display: flex;
     align-items: center;
     margin-left: 22%;
+    padding-right: 10%;
 }
 
 .volume-bar {

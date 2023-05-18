@@ -26,6 +26,7 @@
 }
 
 .all-songs {
+  min-width: 450px;
   height: 280px;
   overflow-y: scroll;
 }
